@@ -1,8 +1,6 @@
 def build_prediction_prompt(zodiac, rule, date, embeddings=None):
-    # Embeddings influence style indirectly, so convert into an invisible hint
     embedding_signal = ""
     if embeddings:
-        # compress signal to a style keyword
         avg = sum(embeddings) / len(embeddings)
         if avg > 0:
             embedding_signal = "positive"

@@ -1,18 +1,21 @@
 import time
+from typing import Optional
 
 class SimpleCache:
     def __init__(self):
-        self.data = {}
+        self._data = {}
 
-    def set(self, key, value, ttl=300):
-        self.data[key] = (value, time.time() + ttl)
+    def set(self, key: str, value, ttl: int = 300) -> None:
+        self._data[key] = (value, time.time() + ttl)
 
-    def get(self, key):
-        item = self.data.get(key)
+    def get(self, key: str):
+        item = self._data.get(key)
         if not item:
             return None
-        val, exp = item
-        if time.time() > exp:
-            del self.data[key]
+        value, expires_at = item
+        if time.time() > expires_at:
+            del self._data[key]
             return None
-        return val
+        return value
+    
+cache = SimpleCache()

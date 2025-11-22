@@ -1,5 +1,8 @@
+# app.py
 from fastapi import FastAPI
 from api.routes import router as api_router
 
-app = FastAPI(title="Astro App — GGUF + ONNX (lightweight)")
+app = FastAPI(title="Astro App API", version="1.0.0")
 app.include_router(api_router)
+
+

@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+gpt4all
+sentence-transformers
+transformers
+huggingface-hub
+requests
+numpy
